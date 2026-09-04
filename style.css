@@ -21,6 +21,38 @@ body.light-mode {
     --accent-fonce: rgba(5, 150, 105, 0.12);
     --bordure: rgba(0, 0, 0, 0.1);
 }
+/* ===== Mode Clair ===== */
+body.light-mode {
+    --bg-base: #f4f6f9;
+    --bg-panel: rgba(255, 255, 255, 0.95);
+    --bg-panel-alt: rgba(0, 0, 0, 0.05);
+    --texte: #0f172a;
+    --texte-mute: #475569;
+    --accent: #059669;
+    --accent-fonce: rgba(5, 150, 105, 0.15);
+    --bordure: rgba(0, 0, 0, 0.12);
+    background: linear-gradient(135deg, #e2e8f0, #f8fafc, #e0f2fe, #f1f5f9) !important;
+}
+
+body.light-mode .identite,
+body.light-mode .section-intro,
+body.light-mode .ligne-fiche,
+body.light-mode .ligne-statut,
+body.light-mode .table-tarifs,
+body.light-mode .fiche-projet,
+body.light-mode .badge-competence,
+body.light-mode .regles-contact,
+body.light-mode .section-contact form {
+    background: var(--bg-panel);
+    border-color: var(--bordure);
+}
+
+body.light-mode input,
+body.light-mode textarea {
+    background: #ffffff;
+    color: var(--texte);
+    border-color: var(--bordure);
+}
 
 /* ===== Réglages généraux ===== */
 * {
@@ -699,5 +731,58 @@ input:checked + .slider:before {
     .fiche-technique,
     .projets-liste {
         grid-template-columns: 1fr;
+    }
+}
+/* --- Conteneur des projets --- */
+.projets-liste {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- Carte Projet individuelle --- */
+.fiche-projet {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 1.25rem;
+    overflow-wrap: break-word; /* Évite que le texte long ne déborde */
+}
+
+/* --- Liste des tags (technologies) --- */
+.projets-liste .tags, 
+.fiche-projet ul {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux tags de passer à la ligne sur mobile */
+    gap: 0.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.projets-liste .tags li,
+.fiche-projet ul li {
+    font-size: 0.85rem;
+    white-space: normal; /* Évite les débordements horizontaux */
+}
+
+/* --- Adaptation spécifique aux petits écrans (Mobile) --- */
+@media screen and (max-width: 768px) {
+    #projets {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .fiche-projet h3 {
+        font-size: 1.15rem;
+        line-height: 1.4;
+    }
+
+    .fiche-projet p {
+        font-size: 0.95rem;
+        line-height: 1.5;
     }
 }

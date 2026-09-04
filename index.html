@@ -233,7 +233,7 @@
                     </ul>
                 </div>
 
-                <form id="formulaire-contact" action="https://formspree.io/f/TON_CODE_FORMSPREE" method="POST">
+                <form id="formulaire-contact" action="https://formsubmit.co/calebedjrosse@gmail.com" method="POST">
                     <div class="groupe-champ">
                         <label for="nom">Nom <span style="color: var(--accent);">*</span></label>
                         <input type="text" id="nom" name="nom" required placeholder="Votre nom complet">
@@ -248,7 +248,8 @@
                         <label for="message">Message <span style="color: var(--accent);">*</span></label>
                         <textarea id="message" name="message" rows="4" required placeholder="Votre message..."></textarea>
                     </div>
-
+                    <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio">
+                    <input type="hidden" name="_template" value="table">
                     <button type="submit" class="bouton-envoi">Envoyer le message</button>
                     <p id="message-confirmation" class="confirmation" role="status"></p>
                 </form>
