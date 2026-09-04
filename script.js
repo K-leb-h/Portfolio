@@ -1,14 +1,12 @@
 // ===== Gestion du Thème (Dark / Light Mode) =====
 const checkboxTheme = document.querySelector("#checkbox");
 
-// Vérifie si un thème est déjà sauvegardé dans le navigateur
 const themeSauvegarde = localStorage.getItem("theme");
 if (themeSauvegarde === "light") {
     document.body.classList.add("light-mode");
     if (checkboxTheme) checkboxTheme.checked = true;
 }
 
-// Écoute le changement de la case à cocher (Switch)
 if (checkboxTheme) {
     checkboxTheme.addEventListener("change", () => {
         if (checkboxTheme.checked) {
@@ -40,32 +38,3 @@ const observateur = new IntersectionObserver(
 );
 
 sections.forEach((section) => observateur.observe(section));
-
-// ===== Envoi du formulaire de contact via FormSubmit =====
-const formulaire = document.querySelector("#formulaire-contact");
-const messageConfirmation = document.querySelector("#message-confirmation");
-
-if (formulaire) {
-    formulaire.addEventListener("submit", async (evenement) => {
-        evenement.preventDefault();
-
-        const donnees = new FormData(formulaire);
-
-        try {
-            const reponse = await fetch("https://formsubmit.co/ajax/calebedjrosse@gmail.com", {
-                method: "POST",
-                headers: { "Accept": "application/json" },
-                body: donnees
-            });
-
-            if (reponse.ok) {
-                messageConfirmation.textContent = "Merci, ton message a bien été envoyé !";
-                formulaire.reset();
-            } else {
-                messageConfirmation.textContent = "Une erreur est survenue, réessaie plus tard.";
-            }
-        } catch (erreur) {
-            messageConfirmation.textContent = "Une erreur est survenue, réessaie plus tard.";
-        }
-    });
-}
