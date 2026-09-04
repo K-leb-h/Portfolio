@@ -786,3 +786,27 @@ input:checked + .slider:before {
         line-height: 1.5;
     }
 }
+/* ===== Tarifs / Devis Responsive ===== */
+
+/* Conteneur avec défilement horizontal si le tableau est trop large */
+.table-tarifs-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+}
+
+/* Adaptation pour écrans mobiles (max 768px) */
+@media screen and (max-width: 768px) {
+    .table-tarifs th,
+    .table-tarifs td {
+        padding: 10px 8px;
+        font-size: 0.8rem;
+    }
+
+    .bouton-tarif {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
